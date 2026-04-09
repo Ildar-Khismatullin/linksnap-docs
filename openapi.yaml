@@ -1,7 +1,7 @@
 openapi: '3.0.3'
 info:
   title: LinkSnap API
-  version: 1.0.0
+  version: 1.1.0
   description: |
     Сервис для сокращения длинных ссылок.
     Позволяет создавать короткие ссылки, отслеживать количество переходов и управлять алиасами.
@@ -26,9 +26,13 @@ paths:
                   type: string
                   description: Длинный URL, который нужно сократить
                   example: "https://example.com/very/super/awkward/long/article"
+                alias:
+                  type: string
+                  description: Пользовательский короткий адрес (необязательно)
+                  example: "my-article"
       responses:
         '201':
-          description: Ссылка успешно создана
+          description: Ссылку успешно создана
           content:
             application/json:
               schema:
@@ -48,6 +52,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Алиас уже занят
+  /{alias}:
+    get:
+      summary: Перейти по короткой ссылке
+      tags:
+        - Links
+      description: Выполняет редирект на оригинальный UTL
+      parameters:
+        - name: alias
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Короткий идентификатор ссылки
+      responses:
+        '302':
+          description: Редирект на оригинальный URL
+          headers:
+            Location:
+              schema:
+                type: string
+              description: Оригинальный URL
+        '404':
+          description: Короткая ссылка не найдена или истекла
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
 components:
   schemas:
@@ -58,4 +91,8 @@ components:
           type: string
           description: Текст ошибки
       required:
-        - error          
+        - error
+
+                
+
+              
