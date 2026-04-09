@@ -28,7 +28,7 @@ paths:
                   example: "https://example.com/very/super/awkward/long/article"
       responses:
         '201':
-          description: Ссылку успешно создана
+          description: Ссылка успешно создана
           content:
             application/json:
               schema:
@@ -44,3 +44,18 @@ paths:
                     example: "ar123"
         '400':
           description: Неверный формат URL
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Текст ошибки
+      required:
+        - error          
