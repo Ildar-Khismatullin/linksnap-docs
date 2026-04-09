@@ -1,0 +1,10 @@
+openapi: '3.0.3'
+info:
+  title: LinkSnap API
+  version: 1.0.0
+  description: |
+    Сервис для сокращения длинных ссылок.
+    Позволяет создавать короткие ссылки, отслеживать количество переходов и управлять алиасами.
+servers: 
+  - url: https://api.linksnap.example.com/v1
+    description: Example server
