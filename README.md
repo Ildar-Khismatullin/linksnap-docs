@@ -24,6 +24,7 @@
  - Составление OpenAPI-спецификации для REST API
  - Оформление README-документации в Markdown
  - Оформление UserGuide-документации в Markdown
+ - Оформление Release Notes в Markdown
 
 ## Что внутри
 
