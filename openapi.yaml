@@ -8,3 +8,39 @@ info:
 servers: 
   - url: https://api.linksnap.example.com/v1
     description: Example server
+paths:
+  /shorten:
+    post:
+      summary: Создать короткую ссылку
+      tags:
+        - Links
+      description: Принимает длинную ссылку, возвращает короткую ссылку.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: Длинный URL, который нужно сократить
+                  example: "https://example.com/very/super/awkward/long/article"
+      responses:
+        '201':
+          description: Ссылку успешно создана
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  short_url:
+                    type: string
+                    description: Сокращенный URL
+                    example: "https://linksnap.example.com/ar123"
+                  alias:
+                    type: string
+                    description: Короткий идентификатор
+                    example: "ar123"
+        '400':
+          description: Неверный формат URL

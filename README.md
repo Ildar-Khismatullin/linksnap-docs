@@ -8,4 +8,4 @@
 
 ## О файлах
 
-- 'openapi.yaml' - спецификация API в формате OpenAPI 3.0
+- [openapi.yaml](./openapi.yaml) - спецификация API в формате OpenAPI 3.0
