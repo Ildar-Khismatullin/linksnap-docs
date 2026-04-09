@@ -32,7 +32,7 @@
 |[openapi.yaml](./openapi.yaml)|Спецификация API|:white_check_mark: Добавлен базовый эндпоинт|
 |[USER_GUIDE.md](./USER_GUIDE.md)|Инструкция пользователя|:recycle: В процессе|
 |[README.md](./README.md)|Документация проекта|:recycle: В процессе|
-|[RELEASE_NOTES.md](./)|История изменений|:clock10: Запланировано|
+|[RELEASE_NOTES.md](./RELEASE_NOTES.md)|История изменений|:recycle: В процессе|
 
 ## Технологии
 
